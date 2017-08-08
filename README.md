@@ -14,6 +14,7 @@ plugins: [
     resolve: `gatsby-plugin-facebook-pixel`,
     options: {
       pixelId: 'pixel id here',
+      trackViewContent: false, // skip track ViewContent on route update
     },
   },
 ]
