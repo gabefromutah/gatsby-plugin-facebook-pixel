@@ -1,0 +1,16 @@
+{
+  "name": "gatsby-plugin-facebook-pixel",
+  "description": "Gatsby plugin to add facebook pixel onto a site",
+  "version": "1.0.0",
+  "author": "Gabe Barrientos <gscopet@gmail.com> (https://www.twitter.com/gabefromutah)",
+  "devDependencies": {
+    "babel-cli": "^6.24.1"
+  },
+  "keywords": ["gatsby", "gatsby-plugin", "facebook pixel"],
+  "license": "MIT",
+  "main": "index.js",
+  "scripts": {
+    "build": "babel src --out-dir .",
+    "watch": "babel -w src --out-dir ."
+  }
+}
