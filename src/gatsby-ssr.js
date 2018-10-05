@@ -1,7 +1,11 @@
-import React from 'react';
+import React from 'react'
 
 exports.onRenderBody = ({ setHeadComponents }, pluginOptions) => {
-  if (process.env.NODE_ENV === `production`) {
+  if (
+    process.env.NODE_ENV === `production` &&
+    (pluginOptions.cookieGDPR === undefined ||
+      document.cookie.indexOf(`${pluginOptions.cookieGDPR}=true`) >= 0)
+  ) {
     return setHeadComponents([
       <script
         key={`gatsby-plugin-facebook-pixel`}
@@ -17,6 +21,6 @@ exports.onRenderBody = ({ setHeadComponents }, pluginOptions) => {
       `,
         }}
       />,
-    ]);
+    ])
   }
-};
+}
