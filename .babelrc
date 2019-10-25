@@ -1,14 +1,10 @@
 {
   "presets": [
-    ["env", {
-      "targets": {
-        "browsers": ["last 2 versions", "safari >= 7"]
+    [
+      "babel-preset-gatsby-package",
+      {
+        "browser": true
       }
-    }],
-    "react"
-  ],
-  "plugins": [
-    "transform-object-rest-spread",
-    "transform-flow-strip-types"
+    ]
   ]
 }

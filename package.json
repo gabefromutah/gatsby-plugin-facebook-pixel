@@ -3,13 +3,31 @@
   "description": "Gatsby plugin to add facebook pixel onto a site",
   "version": "1.0.3",
   "author": "Gabe Barrientos <gbscopet@gmail.com> (https://www.twitter.com/gabefromutah)",
-  "devDependencies": {
-    "babel-cli": "^6.24.1"
+  "dependencies": {
+    "@babel/runtime": "^7.6.3"
   },
-  "keywords": ["gatsby", "gatsby-plugin", "facebook pixel"],
+  "devDependencies": {
+    "@babel/cli": "^7.6.4",
+    "@babel/core": "^7.6.4",
+    "babel-preset-gatsby-package": "^0.2.9",
+    "jest": "^24.9.0",
+    "react": "^16.11.0"
+  },
+  "peerDependencies": {
+    "gatsby": "^2.0.0",
+    "react": "^16.4.2",
+    "react-dom": "^16.4.2"
+  },
+  "keywords": [
+    "gatsby",
+    "gatsby-plugin",
+    "facebook pixel"
+  ],
   "license": "MIT",
   "scripts": {
     "build": "babel src --out-dir .",
+    "prepublishOnly": "npm run build",
+    "test": "jest",
     "watch": "babel -w src --out-dir ."
   },
   "repository": {
