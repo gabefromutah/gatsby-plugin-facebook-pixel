@@ -9,7 +9,6 @@ exports.onRenderBody = ({ setPostBodyComponents }, pluginOptions) => {
   if (process.env.NODE_ENV === `production` && pixelId) {
 
     const snippet = `
-      <script>
       !function(){
         var gatsby_fb_px_load = window.gatsby_fb_px_load = function() {
           var fb_loader = function(f,b,e,v,n,t,s){
