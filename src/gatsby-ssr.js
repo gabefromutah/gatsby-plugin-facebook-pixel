@@ -10,7 +10,7 @@ exports.onRenderBody = ({ setPostBodyComponents }, pluginOptions) => {
 
     const snippet = `
       !function(){
-        var gatsbyFbPxLoad = window.gatsby_fb_px_load = function() {
+        var gatsbyFbPxLoad = window.gatsbyFbPxLoad = function() {
           var fbLoader = function(f,b,e,v,n,t,s){
             if(f.fbq)return;n=f.fbq=function(){n.callMethod?
             n.callMethod.apply(n,arguments):n.queue.push(arguments)};
