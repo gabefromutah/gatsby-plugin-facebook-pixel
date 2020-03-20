@@ -18,6 +18,8 @@ exports.onRenderBody = ({ setPostBodyComponents }, pluginOptions) => {
             n.queue=[];t=b.createElement(e);t.async=!0;
             t.src=v;s=b.getElementsByTagName(e)[0];
             s.parentNode.insertBefore(t,s)
+            fbq('init', '${pixelId}'); // Insert your pixel ID here.
+            fbq('track', 'PageView');
           };
           fbLoader(window, document, 'script', 'https://connect.facebook.net/en_US/fbevents.js')
         };
