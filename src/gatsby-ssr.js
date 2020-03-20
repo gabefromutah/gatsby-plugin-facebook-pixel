@@ -10,8 +10,8 @@ exports.onRenderBody = ({ setPostBodyComponents }, pluginOptions) => {
 
     const snippet = `
       !function(){
-        var gatsby_fb_px_load = window.gatsby_fb_px_load = function() {
-          var fb_loader = function(f,b,e,v,n,t,s){
+        var gatsbyFbPxLoad = window.gatsby_fb_px_load = function() {
+          var fbLoader = function(f,b,e,v,n,t,s){
             if(f.fbq)return;n=f.fbq=function(){n.callMethod?
             n.callMethod.apply(n,arguments):n.queue.push(arguments)};
             if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
@@ -19,22 +19,22 @@ exports.onRenderBody = ({ setPostBodyComponents }, pluginOptions) => {
             t.src=v;s=b.getElementsByTagName(e)[0];
             s.parentNode.insertBefore(t,s)
           };
-          fb_loader(window, document, 'script', 'https://connect.facebook.net/en_US/fbevents.js')
+          fbLoader(window, document, 'script', 'https://connect.facebook.net/en_US/fbevents.js')
         };
-        ${!delayLoad ? `gatsby_fb_px_load();` : ``}
+        ${!delayLoad ? `gatsbyFbPxLoad();` : ``}
       }();
     `
 
     const delayedLoader = `
-      window.segmentSnippetLoaded = false;
-      window.segmentSnippetLoading = false;
-      window.segmentSnippetLoader = function (callback) {
-        if (!window.segmentSnippetLoaded && !window.segmentSnippetLoading) {
-          window.segmentSnippetLoading = true;
+      window.FbPxSegmentSnippetLoaded = false;
+      window.FbPxSegmentSnippetLoading = false;
+      window.FbPxSegmentSnippetLoader = function (callback) {
+        if (!window.FbPxSegmentSnippetLoaded && !window.FbPxSegmentSnippetLoading) {
+          window.FbPxSegmentSnippetLoading = true;
           function loader() {
-            window.gatsby_fb_px_load();
-            window.segmentSnippetLoading = false;
-            window.segmentSnippetLoaded = true;
+            window.gatsbyFbPxLoad();
+            window.FbPxSegmentSnippetLoading = false;
+            window.FbPxSegmentSnippetLoaded = true;
             if(callback) {callback()}
           };
           setTimeout(
@@ -47,7 +47,7 @@ exports.onRenderBody = ({ setPostBodyComponents }, pluginOptions) => {
           );
         }
       }
-      window.addEventListener('scroll',function () {window.segmentSnippetLoader()}, { once: true });
+      window.addEventListener('scroll',function () {window.FbPxSegmentSnippetLoader()}, { once: true });
     `
 
     // if delayLoad option is true, use the delayed loader
