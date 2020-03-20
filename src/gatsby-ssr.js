@@ -28,15 +28,15 @@ exports.onRenderBody = ({ setPostBodyComponents }, pluginOptions) => {
     `
 
     const delayedLoader = `
-      window.FbPxSegmentSnippetLoaded = false;
-      window.FbPxSegmentSnippetLoading = false;
-      window.FbPxSegmentSnippetLoader = function (callback) {
-        if (!window.FbPxSegmentSnippetLoaded && !window.FbPxSegmentSnippetLoading) {
-          window.FbPxSegmentSnippetLoading = true;
+      window.fbPxSnippetLoaded = false;
+      window.fbPxSnippetLoading = false;
+      window.fbPxSnippetLoader = function (callback) {
+        if (!window.fbPxSnippetLoaded && !window.fbPxSnippetLoading) {
+          window.fbPxSnippetLoading = true;
           function loader() {
             window.gatsbyFbPxLoad();
-            window.FbPxSegmentSnippetLoading = false;
-            window.FbPxSegmentSnippetLoaded = true;
+            window.fbPxSnippetLoading = false;
+            window.fbPxSnippetLoaded = true;
             if(callback) {callback()}
           };
           setTimeout(
@@ -49,7 +49,7 @@ exports.onRenderBody = ({ setPostBodyComponents }, pluginOptions) => {
           );
         }
       }
-      window.addEventListener('scroll',function () {window.FbPxSegmentSnippetLoader()}, { once: true });
+      window.addEventListener('scroll',function () {window.fbPxSnippetLoader()}, { once: true });
     `
 
     // if delayLoad option is true, use the delayed loader
