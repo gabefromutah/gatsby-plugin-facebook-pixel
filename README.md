@@ -3,6 +3,7 @@
 Easily add Facebook Pixel to your Gatsby site. At this time, 'ViewContent' event is triggered via onRouteUpdate.
 
 ## Install
+
 `npm install --save gatsby-plugin-facebook-pixel`
 
 ## How to use
@@ -13,8 +14,8 @@ plugins: [
   {
     resolve: `gatsby-plugin-facebook-pixel`,
     options: {
-      pixelId: 'pixel id here',
+      pixelId: "pixel id here",
     },
   },
-]
+];
 ```
