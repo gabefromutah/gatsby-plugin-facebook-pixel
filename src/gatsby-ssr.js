@@ -1,11 +1,8 @@
 import React from "react";
 
 exports.onRenderBody = ({ setHeadComponents }, pluginOptions) => {
-  if (
-    process.env.NODE_ENV === `production` &&
-    pluginOptions &&
-    pluginOptions.pixelId
-  ) {
+  const { enable, pixelId } = pluginOptions || {};
+  if (enable && pixelId) {
     return setHeadComponents([
       <script
         key={`gatsby-plugin-facebook-pixel`}
