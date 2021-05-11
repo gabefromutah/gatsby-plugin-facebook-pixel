@@ -19,7 +19,8 @@
   "scripts": {
     "build": "babel src --out-dir .",
     "watch": "babel -w src --out-dir .",
-    "format": "prettier --write ."
+    "format": "prettier --write .",
+    "prepublishOnly": "npm run build"
   },
   "repository": {
     "type": "git",
