@@ -1,6 +1,7 @@
-exports.onRouteUpdate = function () {
+exports.onRouteUpdate = function ({ location }, pluginOptions) {
+  const { enable } = pluginOptions || {};
   // Don't track while developing.
-  if (process.env.NODE_ENV === `production` && typeof fbq === `function`) {
+  if (enable && typeof fbq === `function`) {
     fbq("track", "ViewContent");
   }
 };
